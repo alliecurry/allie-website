@@ -1,0 +1,177 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  height: 100%vh;
+}
+
+body, html, p, h1, h2, h3, h4, h5, h6 {
+  font-family: "Lato", "Helvetica", serif;
+  font-weight: normal; 
+}
+
+.gridly {
+  position: relative;
+  width: 790px;
+  margin: auto;
+/*  background: #1ABC9C;*/
+}
+
+.brick.small {
+  width: 140px;
+  height: 140px;
+}
+.brick.large {
+  width: 300px;
+  height: 300px;
+  background: #333;
+}
+
+.app {
+  display: block;
+  margin: auto;
+}
+
+.app.icon {
+  width: 90px;
+  height: 90px;
+}
+
+.glyphicon.app.icon {
+  padding-top: 24px;
+  text-align: center;
+  font-size: 52px;
+}
+
+.app.title {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+
+.app.title .glyphicon {
+  font-size: 11px;
+}
+
+.status-bar {
+  background: #444;
+  height: 22px;
+  line-height: 22px;
+  margin-bottom: 12px;
+  color: white;
+  font-size: 11px;
+  text-align: right;
+  padding: 0 10px 0;
+}
+
+/* DESKTOP ONLY */
+@media (min-width: 768px) {
+  .phone {
+    margin-top: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 25px;
+    border: 18px solid #000;
+    background: #1ABC9C;
+  } 
+}
+
+/* MOBILE ONLY */
+@media (max-width: 767px) {
+  .main {
+    background: #1ABC9C;
+  }
+  
+  .status-bar {
+    display: none;
+  }
+  
+  .brick.small {
+    width: 100px;
+    height: 100px;
+  }
+  .brick.large {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .gridly {
+    position: relative;
+    width: 450px;
+    margin: auto;
+  }
+  
+}
+
+.home .brick {
+  opacity: 1;
+  cursor: pointer;
+  position: relative; 
+}
+
+.home .brick .delete {
+  display: block;
+  color: #FFF;
+  background: rgba(255, 255, 255, 0.2);
+  width: 40px;
+  height: 40px;
+  top: 0;
+  right: 0;
+  position: absolute;
+  text-align: center;
+  line-height: 40px; 
+  visibility:hidden
+}
+
+.home .brick.dragging {
+  opacity: 0.8; 
+}
+
+
+/* columns of same height styles */
+
+.row-full-height {
+  height: 100%;
+}
+.col-full-height {
+  height: 100%;
+  vertical-align: middle;
+}
+.row-same-height {
+  display: table;
+  width: 100%;
+  /* fix overflow */
+  table-layout: fixed;
+}
+.col-xs-height {
+  display: table-cell;
+  float: none !important;
+}
+
+@media (min-width: 768px) {
+  .col-sm-height {
+    display: table-cell;
+    float: none !important;
+  }
+}
+@media (min-width: 992px) {
+  .col-md-height {
+    display: table-cell;
+    float: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  .col-lg-height {
+    display: table-cell;
+    float: none !important;
+  }
+}
