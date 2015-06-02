@@ -98,3 +98,15 @@ var isMobile = false;
     }
 
 })(jQuery, ResponsiveBootstrapToolkit);
+
+function updateClock() {
+    var today=new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    if (h > 12) { h -= 12 };
+    if (m < 10) { m = "0" + i };
+    document.getElementById('clock').innerHTML = h+":"+m;
+    var t = setTimeout(function(){updateClock()}, 1000);
+}
+
+updateClock();
