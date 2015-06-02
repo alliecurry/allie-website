@@ -73,6 +73,14 @@ body, html, p, h1, h2, h3, h4, h5, h6 {
   padding: 0 10px 0;
 }
 
+.status-bar span {
+  margin-right: 4px;
+}
+
+body {
+  background: url(/img/tile1.jpg);
+}
+
 /* DESKTOP ONLY */
 @media (min-width: 768px) {
   .phone {
@@ -82,17 +90,14 @@ body, html, p, h1, h2, h3, h4, h5, h6 {
     border-radius: 25px;
     border: 18px solid #000;
     background: #1ABC9C;
+    box-shadow: 3px 3px 10px #555;
   } 
 }
 
 /* MOBILE ONLY */
 @media (max-width: 767px) {
-  .main {
+  body {
     background: #1ABC9C;
-  }
-  
-  .status-bar {
-    display: none;
   }
   
   .brick.small {
