@@ -2,6 +2,8 @@
 var gutter = 20;
 var base = 60;
 var isMobile = false;
+
+var selectedElem, originalPos;
 (function() {
     function openTab(url) {
       var win = window.open(url, '_blank');
@@ -23,25 +25,30 @@ var isMobile = false;
           return;
         }
         
-        // Toggle block size
-        toggleSize($this);
-        return $('.gridly').gridly('layout');
+//        $('.gridly').gridly('draggable', 'on');
+        toggleAppClasses($this);
+        
+        if (selectedElem != undefined) {
+          selectedElem.data('position', originalPos);
+          if (selectedElem.is($this)) {
+            selectedElem = undefined;
+            $('.desc-full').html('');
+            return;
+          }
+        }
+        
+        selectedElem = $this;
+        originalPos = selectedElem.data('position');
+        $this.data('position', isMobile ? 0 : -1);
+        $('.gridly').gridly('layout');
+        $('.desc-full').html($this.find('.desc').html());
+//        $('.gridly').gridly('draggable', 'off');
       });
       
-      function toggleSize(elem) {
-        elem.toggleClass('small');
-        elem.toggleClass('large');
-
-        originalSize = elem.width();
-        if (elem.hasClass('small')) {
-//          size = (originalSize - gutter) / 2 ;
-          size = isMobile ? 100 : 200;
-        } else if (elem.hasClass('large')) {
-//          size = (originalSize * 2) + gutter;
-          size = isMobile ? 240: 300;
-        }
-        elem.data('width', size);
-        elem.data('height', size);
+      function toggleAppClasses(elem) {
+        $('.brick').toggleClass('hidden');
+        elem.removeClass('hidden');
+        elem.find('.title').toggleClass('hidden');
       }
 
       // DELETE
@@ -104,7 +111,7 @@ function updateClock() {
     var h = today.getHours();
     var m = today.getMinutes();
     if (h > 12) { h -= 12 };
-    if (m < 10) { m = "0" + i };
+    if (m < 10) { m = "0" + m };
     document.getElementById('clock').innerHTML = h+":"+m;
     var t = setTimeout(function(){updateClock()}, 1000);
 }
