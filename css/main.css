@@ -15,20 +15,46 @@ body, html, p, h1, h2, h3, h4, h5, h6 {
   font-weight: normal; 
 }
 
+body {
+  background: url(/img/retina_wood.png);
+}
+
+
+a {
+  cursor: pointer;
+  color: white;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: floralwhite;
+}
+
+a:visited {
+  text-decoration: none;
+  color: white;
+}
+
 .hidden {
   display: none;
 }
+
 .gridly {
   position: relative;
   width: 790px;
   margin: auto;
-/*  background: #1ABC9C;*/
+}
+
+.brick {
+  cursor: pointer;
 }
 
 .brick.small {
   width: 140px;
   height: 140px;
 }
+
 .brick.large {
   width: 300px;
   height: 300px;
@@ -45,10 +71,15 @@ body, html, p, h1, h2, h3, h4, h5, h6 {
   height: 90px;
 }
 
-.glyphicon.app.icon {
+.glyphicon.app.icon, .fa.app.icon {
   padding-top: 24px;
   text-align: center;
   font-size: 52px;
+}
+
+.fa.app.icon.social {
+  padding-top: 16px;
+  font-size: 62px;
 }
 
 .app.title {
@@ -69,9 +100,15 @@ body, html, p, h1, h2, h3, h4, h5, h6 {
 }
 
 .desc-full {
+  z-index: 100;
   position: absolute;
+  width: 710px;
   top: 250px;
-  margin-left: 50px;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
 
 .status-bar {
@@ -89,8 +126,16 @@ body, html, p, h1, h2, h3, h4, h5, h6 {
   margin-right: 4px;
 }
 
-body {
-  background: url(/img/retina_wood.png);
+.back {
+  color: white;
+  font-size: 16px;
+  line-height: 16px;
+  cursor: pointer;
+  margin-top: 22px;
+}
+
+.back:after {
+  content: "Back";
 }
 
 .phone { 
@@ -101,6 +146,10 @@ body {
   border: 18px solid #000;
   box-shadow: 3px 3px 10px #555;
   margin-top: 100px;
+}
+
+.phone.enabled {
+  background: #5E9FA3;
 }
 
 @media (min-width: 1321px) {
@@ -139,7 +188,7 @@ body {
   }
   
   .phone {
-     border: none;
+    border: none;
     box-shadow: none;
     background: none;
     margin: 0;
@@ -161,9 +210,10 @@ body {
   }
   
   .desc-full {
-    position: absolute;
     top: 150px;
     margin-left: 20px;
+    margin-right: 20px;
+    width: 360px;
   }
   
 }
@@ -191,7 +241,6 @@ body {
 .home .brick.dragging {
   opacity: 0.8; 
 }
-
 
 /* columns of same height styles */
 

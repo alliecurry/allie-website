@@ -25,28 +25,39 @@ var selectedElem, originalPos;
           return;
         }
         
-//        $('.gridly').gridly('draggable', 'on');
-        toggleAppClasses($this);
-        
+        openOrCloseApp($this);
+//        $('.gridly').gridly('draggable', 'off');
+      });
+      
+      $(document).on("click touchend", ".back", function(event) {
+        console.log('back');
+        event.preventDefault();
+        event.stopPropagation();
+        openOrCloseApp(selectedElem);
+        $('.gridly').gridly('layout');
+      });
+      
+      function openOrCloseApp(elem) {
+        toggleAppClasses(elem);
         if (selectedElem != undefined) {
           selectedElem.data('position', originalPos);
-          if (selectedElem.is($this)) {
+          if (selectedElem.is(elem)) {
             selectedElem = undefined;
             $('.desc-full').html('');
             return;
           }
         }
         
-        selectedElem = $this;
+        selectedElem = elem;
         originalPos = selectedElem.data('position');
-        $this.data('position', isMobile ? 0 : -1);
+        elem.data('position', isMobile ? 0 : -1);
         $('.gridly').gridly('layout');
-        $('.desc-full').html($this.find('.desc').html());
-//        $('.gridly').gridly('draggable', 'off');
-      });
+        $('.desc-full').html(elem.find('.desc').html());
+      }
       
       function toggleAppClasses(elem) {
         $('.brick').toggleClass('hidden');
+        $('.phone').toggleClass('enabled');
         elem.removeClass('hidden');
         elem.find('.title').toggleClass('hidden');
       }
@@ -79,7 +90,7 @@ var selectedElem, originalPos;
     );
 
     resizeGrid = function($, viewport) {
-        console.log(viewport.current());
+//        console.log(viewport.current());
         var b, g, c;
         
         if (viewport.is('xs')) {
