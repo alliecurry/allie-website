@@ -58,6 +58,7 @@ var selectedElem, originalPos;
       function toggleAppClasses(elem) {
         $('.brick').toggleClass('hidden');
         $('.phone').toggleClass('enabled');
+        $('body').toggleClass('enabled');
         elem.removeClass('hidden');
         elem.find('.title').toggleClass('hidden');
       }
@@ -95,8 +96,8 @@ var selectedElem, originalPos;
         
         if (viewport.is('xs')) {
           isMobile = true;
-            b = 30;
-            g = 20;
+            b = 25;
+            g = 18;
             c = 8;
 
         } else if (viewport.is('>=sm')) {
